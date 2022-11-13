@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Reports</title>
+    <link rel="stylesheet" href="./src/css/main.css">
+</head>
+<body>
+    <main>
+        <header>
+            <div class="logo-header">
+                <img src="./src/img/logo-icon-weather.png" alt="Weather Reports">
+            </div>
+        </header>
+        <div class="content-main">
+            <div class="content-left">
+                <div class="title">
+                    <p>Quer saber como está o tempo na sua cidade?</p>
+                </div>
+                <div class="form-city">
+                    <p>Digite o nome da sua cidade:</p>
+                    <div class="input-city">
+                        <input type="text" autocomplete="off" autofocus="on" id="locale-input">
+                        <button id="submit-locale">Buscar</button>
+                    </div>
+                </div>
+                <div class="warning-status">warning-status</div>
+            </div>
+            <div class="content-right">
+                <div class="container-location">
+                    <span class="date">--</span>
+                    <p class="city">--</p>
+                </div>
+                <div class="temperature">
+                    <div class="icon-temp"></div>
+                    <div >
+                        <p><span class="temp">-- </span>ºC</p>
+                    </div>
+                </div>
+                <div class="temp-min-max">
+                    <div >
+                        <p>Min: <span class="min">--</span> ºC</p>
+                    </div>
+                    <div>
+                        <p>Max: <span class="max">--</span> ºC</p>
+                    </div>
+                </div>
+                <div class="props-place">
+                    <div>
+                        <p>Vento: <span class="wind">--</span> km/h</p>
+                    </div>
+                    <div >
+                        <p>Umidade: <span class="humidity">--</span> %</p>
+                    </div>
+                    <div >
+                        <p>Visibilidade: <span class="visibility">--</span>%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="./src/js/script.js"></script>
+</html>

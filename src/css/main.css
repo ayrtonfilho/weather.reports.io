@@ -1,0 +1,142 @@
+/* CORES DO PROJETO
+
+texto: #fff
+back_header: 0180d2
+
+bolinha_laranja: #ffbe32
+bolinha_Azul: #4becff
+
+*/
+
+@font-face { font-family: 'QS Light'; src: url('./../fonts/Quicksand-Light.ttf'); }
+@font-face { font-family: 'QS Medium'; src: url('./../fonts/Quicksand-Medium.ttf'); }
+@font-face { font-family: 'QS Regular'; src: url('./../fonts/Quicksand-Regular.ttf'); }
+@font-face { font-family: 'QS Semibold'; src: url('./../fonts/Quicksand-SemiBold.ttf'); }
+@font-face { font-family: 'QS Bold'; src: url('./../fonts/Quicksand-Bold.ttf'); }
+
+body, html{
+    padding: 0;
+    margin: 0;
+    font-family: 'QS Regular';
+    font-size: 1rem;
+    height: 100%;
+    color: #fff;
+}
+
+html p {
+    margin: 0;
+}
+
+main header{
+    height: 75px;
+    background-color: #0180d2;
+}
+
+main header .logo-header{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+main header .logo-header img{
+    width: 240px;
+}
+
+main{
+    height: 100%;
+    background-image: url("./../img/background.png");
+    background-size: 105% cover;
+    background-position: center;
+    background-color: #018de6;
+}
+.content-main{
+    height: calc(100% - 75px);
+    display: flex;
+    align-items: center;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+.content-main .content-left{
+    height: min-content;
+    width: 50%;
+    margin: auto 0;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.title p{
+    font-size: 4.8rem;
+    font-family: 'QS Bold';
+    margin-bottom: 25px;
+}
+
+
+.content-left .input-city{
+    margin-top: 10px;
+    position: relative;
+}
+
+.content-left .form-city p{
+    font-size: 1.3rem;
+    font-family: 'QS Light';
+}
+
+
+.content-left .form-city input[type="text"]{
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    height: 40px;
+    width: 50%;
+    font-size: 1.4rem;
+    padding: 5px 20px;
+    color: #fff;
+    outline: none;
+    padding-right: 110px;
+}
+
+.content-left .form-city input[type="text"]:hover{
+    box-shadow: 1px 1px 1px grey;
+}
+
+.content-left .form-city button{
+    height: 48px;
+    padding: 10px 25px;
+    margin-left: -110px;
+    background-color: #0180d2;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'QS Bold';
+}
+
+.content-left .form-city button:hover{ background-color: #018de6; }
+.content-left .form-city button:active{ background-color: #066aab; }
+
+#error input{
+    border: 1px solid #ff6b6b;
+    box-shadow: 0px 0px 12px #ff1c1c66
+}
+
+.warning-status{
+    opacity: 0;
+    background-color: #ff454570;
+    margin-top: 15px;
+    color: white;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 60px;
+    padding: 15px 0px;
+    transition: 0.3s linear;
+}
+
+.warning-status#active{
+    opacity: 1;
+}
