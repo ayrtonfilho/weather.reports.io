@@ -71,7 +71,8 @@ function showInfo(json){
     const date = timeZone(timezone);
     
     // inserindo informações da API
-    themeTimer(date.timeZone);    
+    themeTimer(date.timeZone);
+    console.log(date);
     
     document.querySelector('.icon-temp img').setAttribute('src', `./src/img/icons/${json.tempIcon}.svg`);
     // document.querySelector('.icon-temp img').setAttribute('src', `https://openweathermap.org/img/wn/${json.tempIcon}@2x.png`);
@@ -103,18 +104,21 @@ function timeZone(timezone){
     const [day, month, year] = dateValues.split('/');
     const [hours, minutes, seconds] = timeValues.split(':');
 
-    const date = new Date(+year, +month, +day, (+hours + timezone), +minutes, +seconds);
+    const date = new Date(+year, (+month - 1), +day, (+hours + timezone), +minutes, +seconds);
+    // console.log(date);
 
     const h = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
     const m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
     const s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
     
+    const day_ = date.getDate();
     const dd = date.getDay();
     const mm = date.getMonth();
     const yy = date.getFullYear();
 
     const timeZone = `${h}:${m}:${s}`;
-    const dateZone = `${getDay(+dd)}, ${getMonths(+mm).toLowerCase()} de ${yy}`
+    const dateZone = `${getDay(+dd)}, ${day_} de ${getMonths(+mm).toLowerCase()} de ${yy}`
+    
     return {timeZone, dateZone};
 }
 
@@ -129,17 +133,15 @@ function hideWarning(){
     document.querySelector('.warning-status').removeAttribute('id');
 }
 
-
 function getDay(day){
     const days = { 0: 'Domingo', 1: 'Segunda-Feira', 2: 'Terça-Feira', 3: 'Quarta-Feira', 4: 'Quinta-Feira', 5: 'Sexta-Feira', 6: 'Sábado' }
     return days[day]; 
 }
 
 function getMonths(month){
-    const months = { 1: 'Janeiro', 2:'Fevereiro', 3:'Março', 4:'Abril', 5:'Maio', 6:'Junho',7:'Julho', 8:'Agosto',9:'Setembro', 10:'Outubro',11:'Novembro', 12:'Dezembro' }
+    const months = { 0: 'Janeiro', 1:'Fevereiro', 2:'Março', 3:'Abril', 4:'Maio', 5:'Junho',6:'Julho', 7:'Agosto',8:'Setembro', 9:'Outubro',10:'Novembro', 11:'Dezembro' }
     return months[month];
 }
-
 
 function themeTimer(timeZone){
     const hours = timeZone.slice(0,2);
