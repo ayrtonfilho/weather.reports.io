@@ -290,15 +290,29 @@ main{
 @media (max-width: 992px) {
     main{
         padding-bottom: 100px;
+        background-position: center;
+        min-height: 1000px;
     }
     .content-main{
         flex-direction: column;
     }
-    .content-left, .content-right{
-        width: 100%;
+    .content-main .content-left,
+    .content-main .content-right{
+        padding-top: 70px;
+        width: 85%;
+        
     }
+
+    .content-main .content-right {
+        padding-bottom: 50px;
+    }
+
+    .content-main .content-right .back-effect {
+        width: 80%;
+    }
+
     .content-left .title p{
-        font-size: 3rem;
+        font-size: 2.2rem;
     }
 }
 

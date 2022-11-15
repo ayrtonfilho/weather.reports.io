@@ -141,7 +141,7 @@ function getMonths(month){
 function themeTimer(timeZone){
     const hours = timeZone.slice(0,2);
 
-    if( +hours > 0 && +hours < 18  ){
+    if( +hours > 5 && +hours < 18  ){
         document.querySelector('main').removeAttribute('class');
     }else{
         document.querySelector('main').setAttribute('class', 'dark-mode');
