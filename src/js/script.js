@@ -41,7 +41,9 @@ document.body.addEventListener('keyup', async (event) => {
 });
 
 function jsonReceiver(json){
+   
     if(json.cod == 200){
+
         showInfo({
             name: json.name,
             country: json.sys.country,
@@ -51,8 +53,10 @@ function jsonReceiver(json){
             humidity: json.main.humidity,
             tempMin: json.main.temp_min,
             tempMax: json.main.temp_max,
-            visibility: json.visibility
+            visibility: json.visibility,
+            timeZone: json.timezone
         });
+
         hideWarning();
 
     }else{
@@ -61,21 +65,54 @@ function jsonReceiver(json){
 }
 
 function showInfo(json){
-    const date = new Date();
-    const month = getMonths(date.getMonth()+1).toLowerCase();
-    const day = getDay(date.getDay());
+    
+    const timezone = json.timeZone == 0 ? json.timeZone: json.timeZone/3600;
+    const date = timeZone(timezone);
     
     // inserindo informações da API
-    document.querySelector('.date').innerHTML = `${day}, ${date.getDate()} de ${month}`;
-    document.querySelector('.city').innerHTML = json.name + ', ' +  json.country;
-    document.querySelector('.temp').innerHTML = json.temp;
-    document.querySelector('.min').innerHTML = json.tempMin;
-    document.querySelector('.max').innerHTML = json.tempMax;
-    document.querySelector('.visibility').innerHTML = json.visibility /100;
-    document.querySelector('.wind').innerHTML = json.wind;
-    document.querySelector('.humidity').innerHTML = json.humidity;
-
+    themeTimer(date.timeZone);    
+    
+    document.querySelector('.icon-temp img').setAttribute('src', `./src/img/icons/${json.tempIcon}.svg`);
+    // document.querySelector('.icon-temp img').setAttribute('src', `https://openweathermap.org/img/wn/${json.tempIcon}@2x.png`);
+    printValue('.date', date.dateZone);
+    printValue('.city', json.name + ', ' +  json.country);
+    printValue('.temp', json.temp);
+    printValue('.min', json.tempMin);
+    printValue('.max', json.tempMax);
+    printValue('.visibility', json.visibility / 100);
+    printValue('.wind', json.wind);
+    printValue('.humidity', json.humidity);
+    printValue('.hour', date.timeZone);
+    
     hideWarning();
+}
+        
+function printValue(selector, value){
+    document.querySelector(selector).innerHTML = value;
+}
+
+function timeZone(timezone){
+    let dataLocale = new Date();
+
+    const str = dataLocale.toLocaleString('en-GB', {timeZone: 'Europe/London'});
+
+    const [dateValues, timeValues] = str.split(',');
+    const [day, month, year] = dateValues.split('/');
+    const [hours, minutes, seconds] = timeValues.split(':');
+
+    const date = new Date(+year, +month, +day, (+hours + timezone), +minutes, +seconds);
+
+    const h = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+    const m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+    const s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+    
+    const dd = date.getDay();
+    const mm = date.getMonth();
+    const yy = date.getFullYear();
+
+    const timeZone = `${h}:${m}:${s}`;
+    const dateZone = `${getDay(+dd)}, ${getMonths(+mm).toLowerCase()} de ${yy}`
+    return {timeZone, dateZone};
 }
 
 function showWarning(msg){
@@ -96,6 +133,17 @@ function getDay(day){
 }
 
 function getMonths(month){
-    const months ={ 1: 'Janeiro', 2:'Fevereiro', 3:'Março', 4:'Abril', 5:'Maio', 6:'Junho',7:'Julho', 8:'Agosto',9:'Setembro', 10:'Outubro',11:'Novembro', 12:'Dezembro' }
+    const months = { 1: 'Janeiro', 2:'Fevereiro', 3:'Março', 4:'Abril', 5:'Maio', 6:'Junho',7:'Julho', 8:'Agosto',9:'Setembro', 10:'Outubro',11:'Novembro', 12:'Dezembro' }
     return months[month];
+}
+
+
+function themeTimer(timeZone){
+    const hours = timeZone.slice(0,2);
+
+    if( +hours > 0 && +hours < 18  ){
+        document.querySelector('main').removeAttribute('class');
+    }else{
+        document.querySelector('main').setAttribute('class', 'dark-mode');
+    }
 }

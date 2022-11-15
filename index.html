@@ -9,57 +9,104 @@
 </head>
 <body>
     <main>
+
         <header>
             <div class="logo-header">
+
+                <div class="analitycs"></div><!--analitycs-->
                 <img src="./src/img/logo-icon-weather.png" alt="Weather Reports">
-            </div>
+            
+            </div><!--logo-header-->
         </header>
+
         <div class="content-main">
+
             <div class="content-left">
+
                 <div class="title">
-                    <p>Quer saber como está o tempo na sua cidade?</p>
-                </div>
+                    <p>Quer saber como está o clima na sua cidade?</p>
+                    <span class="timezone"></span>
+                </div><!---->
+
                 <div class="form-city">
+
                     <p>Digite o nome da sua cidade:</p>
+
                     <div class="input-city">
                         <input type="text" autocomplete="off" autofocus="on" id="locale-input">
                         <button id="submit-locale">Buscar</button>
-                    </div>
-                </div>
-                <div class="warning-status">warning-status</div>
-            </div>
+                    </div><!--input-city-->
+
+                </div><!--form-city-->
+
+                <div class="warning-status"></div><!---->
+
+            </div><!---->
             <div class="content-right">
-                <div class="container-location">
-                    <span class="date">--</span>
-                    <p class="city">--</p>
-                </div>
-                <div class="temperature">
-                    <div class="icon-temp"></div>
-                    <div >
-                        <p><span class="temp">-- </span>ºC</p>
-                    </div>
-                </div>
-                <div class="temp-min-max">
-                    <div >
+                
+                <div class="container-location back-effect">
+                    
+                    <div class="clock">
+                        <p class="hour">--</p>
+                        <hr>
+                    </div><!--hour-->
+
+                    <div class="location">
+                        <span class="date">--</span>
+                        <p class="city">--</p>
+                    </div><!--location-->
+
+                </div><!--container-location-->
+
+                <div class="temperature back-effect">
+
+                    <div class="icon-temp">
+                        <img src="" alt="">
+                    </div><!---->
+
+                    <div class="temp-block">
+                        <p><span class="temp">--</span>ºC</p>
+                    </div><!---->
+
+                </div><!---->
+
+                <div class="temp-min-max back-effect">
+                    
+                    <div>
+                        <div class="circle t-min"></div><!---->
                         <p>Min: <span class="min">--</span> ºC</p>
-                    </div>
+                    </div><!---->
+
                     <div>
+                        <div class="circle t-max"></div><!---->
                         <p>Max: <span class="max">--</span> ºC</p>
-                    </div>
-                </div>
-                <div class="props-place">
-                    <div>
+                    </div><!---->
+
+                </div><!---->
+
+                <div class="props-place back-effect">
+
+                    <div class="grid">
+                        <img src="./src/img/wind.png" alt="wind-icon">
                         <p>Vento: <span class="wind">--</span> km/h</p>
-                    </div>
-                    <div >
-                        <p>Umidade: <span class="humidity">--</span> %</p>
-                    </div>
-                    <div >
+                    </div><!---->
+
+                    <div class="grid">
+                        <img src="./src/img/umidade-icon.png" alt="humidity-icon">
+                        <p>Umidade: <span class="humidity">--</span>%</p>
+                    </div><!---->
+
+                    <div class="grid">
+                        <img src="./src/img/visible.png" alt="visibility-icon">
                         <p>Visibilidade: <span class="visibility">--</span>%</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </div><!---->
+
+                </div><!---->
+
+            </div><!---->
+
+        </div><!---->
+
     </main>
 </body>
 <script src="./src/js/script.js"></script>

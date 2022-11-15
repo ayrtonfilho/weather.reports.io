@@ -27,6 +27,16 @@ html p {
     margin: 0;
 }
 
+main.dark-mode{
+    background-blend-mode: color-dodge;
+    background-color: #00060e;
+    transition: 0.3s linear;
+}
+
+main.dark-mode header{
+    background-color: transparent;
+}
+
 main header{
     height: 75px;
     background-color: #0180d2;
@@ -40,6 +50,16 @@ main header .logo-header{
     padding-right: 30px;
     max-width: 1800px;
     margin: 0 auto;
+    position: relative;
+}
+
+main header .analitycs{
+    height: 100%;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    z-index: 1;
+    background-color: transparent; 
 }
 
 main header .logo-header img{
@@ -49,7 +69,7 @@ main header .logo-header img{
 main{
     height: 100%;
     background-image: url("./../img/background.png");
-    background-size: 105% cover;
+    background-size: cover;
     background-position: center;
     background-color: #018de6;
 }
@@ -104,13 +124,13 @@ main{
 }
 
 .content-left .form-city button{
-    height: 48px;
-    padding: 10px 25px;
-    margin-left: -110px;
     background-color: #0180d2;
+    height: 48px;
+    padding: 15px 25px;
+    margin-left: -109px;
     border: none;
     color: white;
-    border-radius: 10px;
+    border-radius: 9px;
     font-size: 1rem;
     font-family: 'QS Bold';
 }
@@ -119,8 +139,8 @@ main{
 .content-left .form-city button:active{ background-color: #066aab; }
 
 #error input{
-    border: 1px solid #ff6b6b;
-    box-shadow: 0px 0px 12px #ff1c1c66
+    border: 1px solid #ff8484;
+    box-shadow: 2px 6px 12px #3333334d;
 }
 
 .warning-status{
@@ -140,3 +160,145 @@ main{
 .warning-status#active{
     opacity: 1;
 }
+
+
+/* CONTENT RIGHT */
+
+
+.content-right{
+    width: 50%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-right .container-location{
+    display: flex;
+    justify-content: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.content-right .container-location .date{
+    font-family: 'QS Light';
+    font-size: 1rem;
+}
+
+.content-right .container-location .city{
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.content-right .container-location .clock{
+    display: flex;
+    align-items: center;
+}
+
+.content-right .container-location .clock hr{
+    width: 0;
+    height: 40px;
+    margin: 0 20px;
+}
+
+.content-right .container-location .clock .hour{
+    font-size: 2rem;
+    font-family: 'QS Light';
+}
+
+
+.content-right .props-place{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+} 
+/* .content-right .temp-min-max{}
+.content-right .temperature{} */
+
+.content-right .back-effect{
+    background-color: #0050954a;
+    padding: 25px 30px;
+    width: 60%;
+    margin-bottom: 5px;
+    box-shadow: 0px 4px 5px #0000000d;
+}
+
+
+.content-right .temperature {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-right .temperature .icon-temp img{
+    width: 7rem;
+    margin-right: 30px;
+}
+
+.content-right .temp-block span{
+    font-size: 5rem;
+    font-family: 'QS Bold';
+}
+.content-right .temp-block p{
+    float: right;
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.content-right .temp-min-max{
+    display: flex;
+    justify-content: center;
+}
+.content-right .temp-min-max p{
+    float: left;
+}
+.content-right .circle.t-min + p{
+    margin-right: 15px;
+}
+.content-right .temp-min-max .circle{
+    padding: 10px;
+    margin-right: 5px;
+    float: left;
+    width: min-content;
+    border-radius: 100%;
+}
+
+.content-right .temp-min-max .circle.t-min{
+    background-color: #44f2ff;;
+}
+.content-right .temp-min-max .circle.t-max{
+    background-color: #ff9800;
+}
+
+.content-right .props-place{
+    font-size: 0.9rem;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.content-right .props-place img{
+    height: 13px;
+    margin-right: 3px;
+    margin-left: 14px;
+}
+
+.content-right .grid{
+    float: left;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 992px) {
+    main{
+        padding-bottom: 100px;
+    }
+    .content-main{
+        flex-direction: column;
+    }
+    .content-left, .content-right{
+        width: 100%;
+    }
+    .content-left .title p{
+        font-size: 3rem;
+    }
+}
+
