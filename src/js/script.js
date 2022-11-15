@@ -54,7 +54,8 @@ function jsonReceiver(json){
             tempMin: json.main.temp_min,
             tempMax: json.main.temp_max,
             visibility: json.visibility,
-            timeZone: json.timezone
+            timeZone: json.timezone,
+            cloudy: json.clouds.all
         });
 
         hideWarning();
@@ -83,6 +84,8 @@ function showInfo(json){
     printValue('.wind', json.wind);
     printValue('.humidity', json.humidity);
     printValue('.hour', date.timeZone);
+    printValue('.cloudy', json.cloudy);
+
     
     hideWarning();
 }

@@ -30,7 +30,7 @@ html p {
 main.dark-mode{
     background-blend-mode: color-dodge;
     background-color: #00060e;
-    transition: 0.3s linear;
+    
 }
 
 main.dark-mode header{
@@ -72,6 +72,7 @@ main{
     background-size: cover;
     background-position: center;
     background-color: #018de6;
+    transition: 0.3s linear;
 }
 .content-main{
     height: calc(100% - 75px);
@@ -125,12 +126,11 @@ main{
 
 .content-left .form-city button{
     background-color: #0180d2;
-    height: 48px;
-    padding: 15px 25px;
+    padding: 14px 25px;
     margin-left: -109px;
     border: none;
     color: white;
-    border-radius: 9px;
+    border-radius: 8px;
     font-size: 1rem;
     font-family: 'QS Bold';
 }
@@ -204,18 +204,13 @@ main{
     font-family: 'QS Light';
 }
 
-
-.content-right .props-place{
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-} 
 /* .content-right .temp-min-max{}
 .content-right .temperature{} */
 
 .content-right .back-effect{
     background-color: #0050954a;
     padding: 25px 30px;
-    width: 60%;
+    width: 45%;
     margin-bottom: 5px;
     box-shadow: 0px 4px 5px #0000000d;
 }
@@ -269,15 +264,19 @@ main{
 }
 
 .content-right .props-place{
-    font-size: 0.9rem;
-    height: 30px;
-    display: flex;
-    justify-content: center;
+    font-size: 1.1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0.3rem;
+    justify-items: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .content-right .props-place img{
-    height: 13px;
-    margin-right: 3px;
+    /* height: 15px; */
+    width: 19px;
+    margin-right: 5px;
     margin-left: 14px;
 }
 
@@ -288,19 +287,44 @@ main{
 }
 
 @media (max-width: 992px) {
+    html, body{
+        height: max-content;
+    }
     main{
         padding-bottom: 100px;
         background-position: center;
-        min-height: 1000px;
     }
     .content-main{
         flex-direction: column;
     }
     .content-main .content-left,
     .content-main .content-right{
-        padding-top: 70px;
+        padding-top: 100px;
         width: 85%;
         
+    }
+    .content-right .container-location .date {
+        font-size: 0.9rem;
+    }
+
+    .content-right .container-location .city{
+        font-size: 1.3rem;
+    }
+    .content-right .container-location .clock hr {
+        height: 90px;
+    }
+
+    .content-right .temp-block span {
+        font-size: 3rem;
+    }
+
+    .content-right .temperature .icon-temp img {
+        width: 5rem;
+    }
+
+    .content-left .form-city input[type="text"] {
+        font-size: 1.1rem;
+        width: 50%;
     }
 
     .content-main .content-right {
@@ -308,7 +332,18 @@ main{
     }
 
     .content-main .content-right .back-effect {
-        width: 80%;
+        width: 90%;
+    }
+
+    .content-right .back-effect {
+        padding: 20px 15px;
+    }
+    .content-right .props-place {
+        font-size: 0.8rem;
+    }
+    .content-right .props-place img {
+        /* height: 13px; */
+        width: 12px;
     }
 
     .content-left .title p{
