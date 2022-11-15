@@ -39,18 +39,18 @@ main.dark-mode header{
 
 main header{
     height: 75px;
-    background-color: #0180d2;
+    max-width: 1800px;
+    margin: 0 auto;
 }
 
-main header .logo-header{
+main header .logo-header {
     display: flex;
     align-items: center;
     height: 100%;
-    padding-left: 30px;
-    padding-right: 30px;
     max-width: 1800px;
     margin: 0 auto;
     position: relative;
+    padding-left: 30px;
 }
 
 main header .analitycs{
@@ -68,24 +68,25 @@ main header .logo-header img{
 
 main{
     height: 100%;
-    background-image: url("./../img/background.png");
-    background-size: cover;
+    background-image: url(./../img/background.png);
     background-position: center;
     background-color: #018de6;
     transition: 0.3s linear;
 }
+
 .content-main{
     height: calc(100% - 75px);
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
     align-items: center;
     max-width: 1800px;
+    padding-left: 30px;
     margin: 0 auto;
 }
+
 .content-main .content-left{
     height: min-content;
-    width: 50%;
     margin: auto 0;
-    padding-left: 30px;
     padding-right: 30px;
 }
 
@@ -94,7 +95,6 @@ main{
     font-family: 'QS Bold';
     margin-bottom: 25px;
 }
-
 
 .content-left .input-city{
     margin-top: 10px;
@@ -105,7 +105,6 @@ main{
     font-size: 1.3rem;
     font-family: 'QS Light';
 }
-
 
 .content-left .form-city input[type="text"]{
     background-color: transparent;
@@ -166,7 +165,6 @@ main{
 
 
 .content-right{
-    width: 50%;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -204,8 +202,6 @@ main{
     font-family: 'QS Light';
 }
 
-/* .content-right .temp-min-max{}
-.content-right .temperature{} */
 
 .content-right .back-effect{
     background-color: #0050954a;
@@ -286,6 +282,30 @@ main{
     align-items: center;
 }
 
+footer{
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    bottom: -1px;
+    background-color: #1380c33e;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 15px 0;
+}
+
+footer p{
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+footer span{
+    font-size: 0.9rem;
+    color: #fff;
+    font-family: 'QS Bold';
+    border-radius: 5px;
+}
+
+
 @media (max-width: 992px) {
     html, body{
         height: max-content;
@@ -295,7 +315,9 @@ main{
         background-position: center;
     }
     .content-main{
-        flex-direction: column;
+        grid-template-columns: repeat(1, 100%);
+        padding: 0;
+        justify-items: center;
     }
     .content-main .content-left,
     .content-main .content-right{
@@ -327,6 +349,12 @@ main{
         width: 50%;
     }
 
+    .content-main .content-left{
+        padding-left: 30px;
+        margin: 0 auto;
+        max-width: 420px;
+    }
+    
     .content-main .content-right {
         padding-bottom: 50px;
     }
@@ -336,7 +364,8 @@ main{
     }
 
     .content-right .back-effect {
-        padding: 20px 15px;
+        width: 100%;
+        max-width: 400px;
     }
     .content-right .props-place {
         font-size: 0.8rem;
