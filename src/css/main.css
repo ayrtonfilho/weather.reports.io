@@ -28,8 +28,8 @@ html p {
 }
 
 main.dark-mode{
-    background-blend-mode: multiply;
-    background-color: #071528;
+    background-blend-mode: soft-light;
+    background-color: #031122;
 }
 
 main.dark-mode header{
