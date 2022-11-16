@@ -28,9 +28,8 @@ html p {
 }
 
 main.dark-mode{
-    background-blend-mode: color-dodge;
-    background-color: #00060e;
-    
+    background-blend-mode: multiply;
+    background-color: #071528;
 }
 
 main.dark-mode header{
@@ -68,8 +67,10 @@ main header .logo-header img{
 
 main{
     height: 100%;
+    background: no-repeat;
     background-image: url(./../img/background.png);
     background-position: center;
+    background-size: cover;
     background-color: #018de6;
     transition: 0.3s linear;
 }
@@ -129,6 +130,7 @@ main{
     margin-left: -109px;
     border: none;
     color: white;
+    z-index: 1;
     border-radius: 8px;
     font-size: 1rem;
     font-family: 'QS Bold';
@@ -152,7 +154,8 @@ main{
     width: 100%;
     left: 0;
     top: 60px;
-    padding: 15px 0px;
+    padding: 10px 0px;
+    font-size: 0.8rem;
     transition: 0.3s linear;
 }
 
@@ -209,6 +212,8 @@ main{
     width: 45%;
     margin-bottom: 5px;
     box-shadow: 0px 4px 5px #0000000d;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 
@@ -286,9 +291,9 @@ footer{
     position: fixed;
     text-align: center;
     width: 100%;
-    bottom: -1px;
+    bottom: 0;
     left: 0;
-    background-color: #1380c33e;
+    background-color: #0183cc30;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     padding: 15px 0;

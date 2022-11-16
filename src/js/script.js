@@ -72,7 +72,6 @@ function showInfo(json){
     
     // inserindo informações da API
     themeTimer(date.timeZone);
-    console.log(date);
     
     document.querySelector('.icon-temp img').setAttribute('src', `./src/img/icons/${json.tempIcon}.svg`);
     // document.querySelector('.icon-temp img').setAttribute('src', `https://openweathermap.org/img/wn/${json.tempIcon}@2x.png`);
