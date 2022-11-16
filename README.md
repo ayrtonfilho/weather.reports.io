@@ -28,6 +28,7 @@ Então, após algumas pesquisas e uma conversa produtiva com um amigo professor 
 Espero que vocês gostem do projeto, tirem suas dúvidas se necessitarem. Não esqueçam de deixar sua curtida, isso pode me ajudar muito!!</p>
 
 
-<h3>💻 Siga-me no instagram!</h3>
-<strong><a href="https://www.instagram.com/ayrtondev_/">@ayrtondev_</a></strong>
+<h3>💻 Redes Sociais</h3>
+<strong><a href="https://www.instagram.com/ayrtondev_/">Instagram</a></strong>
+<strong><a href="https://www.linkedin.com/in/airton-filho/">Linkedin</a></strong>
 
