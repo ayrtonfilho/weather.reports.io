@@ -1,32 +1,16 @@
 // https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 
-document.querySelector('#submit-locale').addEventListener( 'click', async (event) => {
-    
-    const locale = document.querySelector("#locale-input").value;
+document.body.addEventListener('keyup', (event) => { consultAPI(event)});
+document.querySelector('#submit-locale').addEventListener( 'click', (event) => { consultAPI(event)});
 
-    if(locale != ''){
-        // showWarning("Carregando informações...");
-    
-        const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(locale)}&appid=5b8876daee472a4f563a39a805bfc969&units=metric&lang=pt_br`;
+async function consultAPI(event){
+
+    if(event.code == 'Enter' || event.type == 'click'){
         
-        let results = await fetch(url);
-        let json = await results.json();
-        
-        jsonReceiver(json);
-    }else{
-        showWarning("Ops! Você esqueceu de digitar sua pesquisa.");
-    }
-
-});
-
-document.body.addEventListener('keyup', async (event) => {
-
-    if(event.code == 'Enter'){
-
         const locale = document.querySelector("#locale-input").value;
-    
+
         if(locale != ''){
-            // showWarning("Carregando informações...");
+            showLoader();
         
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(locale)}&appid=5b8876daee472a4f563a39a805bfc969&units=metric&lang=pt_br`;
             
@@ -34,11 +18,21 @@ document.body.addEventListener('keyup', async (event) => {
             let json = await results.json();
             
             jsonReceiver(json);
+
         }else{
-            showWarning("Ops! Você esqueceu de digitar sua pesquisa.");
+            showWarning("Você esqueceu de digitar o nome da cidade.");
         }
     }
-});
+}
+
+
+
+function showLoader(){
+    document.querySelector('.loader-status').setAttribute('id', 'show');
+    setTimeout(() => {
+        document.querySelector('.loader-status').removeAttribute('id');
+    }, 1500);
+}
 
 function jsonReceiver(json){
    
@@ -104,7 +98,6 @@ function timeZone(timezone){
     const [hours, minutes, seconds] = timeValues.split(':');
 
     const date = new Date(+year, (+month - 1), +day, (+hours + timezone), +minutes, +seconds);
-    // console.log(date);
 
     const h = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
     const m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
@@ -151,3 +144,5 @@ function themeTimer(timeZone){
         document.querySelector('main').setAttribute('class', 'dark-mode');
     }
 }
+
+showLoader();
