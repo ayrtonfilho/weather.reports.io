@@ -71,7 +71,7 @@ main{
     background-image: url(./../img/background.png);
     background-position: center;
     background-size: cover;
-    background-color: #018de6;
+    background-color: #008adb;
     transition: 0.3s linear;
 }
 
@@ -106,18 +106,19 @@ main{
     font-size: 1.3rem;
     font-family: 'QS Light';
 }
+
 .content-left .input-city{
     display: flex;
     border: 1px solid #fff;
+    background-color: transparent;
     border-radius: 10px;
     max-width: fit-content;
     padding: 1px 1px;
 }
 
-.content-left .form-city input[type="text"]{
+.content-left .form-city input[type="search"]{
     background-color: transparent;
     border: none;
-    height: 40px;
     width: 100%;
     font-size: 1.4rem;
     padding: 5px 10px;

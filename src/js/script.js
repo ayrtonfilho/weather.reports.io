@@ -10,16 +10,17 @@ async function consultAPI(event){
         const locale = document.querySelector("#locale-input").value;
 
         if(locale != ''){
+
             showLoader();
         
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(locale)}&appid=5b8876daee472a4f563a39a805bfc969&units=metric&lang=pt_br`;
             
             let results = await fetch(url);
             let json = await results.json();
-            
             jsonReceiver(json);
 
         }else{
+            clearInfo();
             showWarning("Você esqueceu de digitar o nome da cidade.");
         }
     }
@@ -29,15 +30,18 @@ async function consultAPI(event){
 
 function showLoader(){
     document.querySelector('.loader-status').setAttribute('id', 'show');
+}
+
+function hideLoader(){
     setTimeout(() => {
         document.querySelector('.loader-status').removeAttribute('id');
-    }, 1500);
+    }, 1000);
 }
 
 function jsonReceiver(json){
    
     if(json.cod == 200){
-
+        clearInfo();
         showInfo({
             name: json.name,
             country: json.sys.country,
@@ -53,9 +57,12 @@ function jsonReceiver(json){
         });
 
         hideWarning();
+        hideLoader();
 
     }else{
+        clearInfo();
         showWarning("Localização não encontrada, verifique a escrita da cidade que deseja realizar a consulta.");
+        hideLoader();
     }
 }
 
@@ -83,7 +90,20 @@ function showInfo(json){
     
     hideWarning();
 }
-        
+
+function clearInfo(){
+    printValue('.date', '--');
+    printValue('.city', '--');
+    printValue('.temp', '--');
+    printValue('.min', '--');
+    printValue('.max', '--');
+    printValue('.visibility', '--');
+    printValue('.wind', '--');
+    printValue('.humidity', '--');
+    printValue('.hour', '--');
+    printValue('.cloudy', '--');
+}
+
 function printValue(selector, value){
     document.querySelector(selector).innerHTML = value;
 }
@@ -146,3 +166,4 @@ function themeTimer(timeZone){
 }
 
 showLoader();
+hideLoader();
