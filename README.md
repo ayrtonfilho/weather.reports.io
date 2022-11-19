@@ -29,5 +29,5 @@ Espero que vocês gostem do projeto, tirem suas dúvidas se necessitarem. Não e
 
 
 <h3>💻 Redes Sociais</h3>
-<strong><a href="https://www.instagram.com/ayrtondev_/">Instagram</a></strong>
+<strong><a href="https://www.instagram.com/ayrtondev_/">Instagram</a></strong><br>
 <strong><a href="https://www.linkedin.com/in/airton-filho/">Linkedin</a></strong>
