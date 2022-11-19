@@ -35,7 +35,7 @@ function showLoader(){
 function hideLoader(){
     setTimeout(() => {
         document.querySelector('.loader-status').removeAttribute('id');
-    }, 1000);
+    }, 500);
 }
 
 function jsonReceiver(json){
