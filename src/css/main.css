@@ -118,11 +118,11 @@ main{
     background-color: transparent;
     border: none;
     height: 40px;
+    width: 100%;
     font-size: 1.4rem;
-    padding: 5px 20px;
+    padding: 5px 10px;
     color: #fff;
     outline: none;
-    padding-right: 110px;
 }
 
 
@@ -216,7 +216,6 @@ main{
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
-
 
 .content-right .temperature {
     display: flex;
@@ -383,11 +382,6 @@ footer span{
 
     .content-right .temperature .icon-temp img {
         width: 5rem;
-    }
-
-    .content-left .form-city input[type="text"] {
-        font-size: 1.1rem;
-        width: 50%;
     }
 
     .content-main .content-left{
